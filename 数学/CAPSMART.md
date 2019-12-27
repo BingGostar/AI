@@ -82,6 +82,9 @@
         >加法单位元 $0 \in U$
         >加法封闭性 $u,w \in U$ 蕴含 $u+w \in U$
         >乘法封闭性 $a \in F, u \in U$ 蕴含 $au \in U$
+
+        例如：$R^{3}$ 中，所有第三分量是 $0$ 的向量:
+        >$\left\lbrace\begin{array}{l} \left[\begin{array}{l} x \\ y \\ 0 \end{array}\right] | x,y \in R \end{array}\right\rbrace $ 是 $R^{4}$ 的一个子空间，即 $XOY$ 坐标平面
         
     * **直和**
         设 $U_{1},\cdots,U_{m}$ 都是 $V$ 的子空间，则 $U_{1} + \cdots + U_{m}$
@@ -154,29 +157,81 @@
 $F$ 表示 $R$ 和 $C$
 $V$ 和 $W$ 表示 $F$ 上的向量空间
 
-1. **一些概念**
-    * **映射函数、集合**
-        对于线性映射，使用函数记号 $T(v)$
-        从 $V$ 到 $W$ 的所有线性映射构成的集合称为 $L(V,M)$
-        >$T \in L(V,M)$
-    
-    * **零空间**
-        >对于 $T \in L(V,W)$，$T$ 的零空间是指 $V$ 中那些被 $T$ 映为 $0$ 的向量构成的子集
-        >$null \ T = \{ v \in V : Tv=0 \}$
+https://wenku.baidu.com/view/3d702c20af45b307e871971c.html
+https://wenku.baidu.com/view/1e7a8f3183c4bb4cf7ecd1d2.html
 
-    * **单的**
+1. **线性映射的基本定理**
+    * **线性映射的定义**
+        设 $V,W$ 是两个向量空间，如果函数 $T$ 满足下列条件 
+        >加性
+        >对于所有的 $u,v \in V$ 都有 $T(u+v) = Tu + Tv$
+
+        >齐性
+        >对所有 $\lambda \in F$ 和 $v \in V$ 都有 T(\lambda v) = \lambda (Tv)
+
+        就称 $T$ 是 $V$ 到 $W$ 的一个映射，对于线性映射，使用函数记号 $T(v)$，可以写作 $T: V \rightarrow W$
+
+        线性映射在数学中很多，从 $V$ 到 $W$ 所有线性映射构成的集合记为 $L(V,W)$，$T \in L(V,M)$ 比如：
+        >矩阵乘法是个线性映射
+        >求导运算也是个线性映射
+        >定积分、不定积分也是线性映射
+        >...
+
+    * **恒等映射**
+        对于映射 $f: A \rightarrow A$，是恒等映射，记为 $I$
+
+    * **零空间**
+        对于 $T \in L(V,W)$，$T$ 的零空间是指 $V$ 中那些被 $T$ 映为 $0$ 的向量构成的子集
+        >$$null \ T = \{ v \in V : Tv=0 \}$$
+
+        线性映射 $T$ 的零空间也成为 $T$ 的**核**
+
+        例如：
+        >若 T 是 V到W的零映射，那么对于每个 v \in V 有 Tv=0, 则 nullT = V 
+        >设映射 $\varphi \in L(C^{3},F)$ 定义为 $\varphi(z_{1},z_{2},z_{3}) = z_{1}+2z_{2}+3z_{3}$，则 $null\varphi = \lbrace (z_{1},z_{2},z_{3}) \in C^{3}: z_{1}+2z_{2}+3z_{3} = 0 \rbrace$，并且 $null \varphi$ 的一个基为 $(-2,1,0),(-3,0,1)$
+        
+        零空间是子空间
+        >设 $T \in L(V,W)$，则 $null T$ 是 $V$ 的子空间
+
+    * **单射**
         如果当 $Tu=Tv$ 时必有 $u=v$，则称映射 $T: V \rightarrow W$ 是单的
+        等价于零空间为 $\lbrace 0\rbrace$
+        >设 $T \in L(V,W)$，则 $T$ 是单的当且仅当 $null T = \lbrace 0 \rbrace$
 
     * **值域**
+        值域即函数输出集
+        对于 $V$ 到 $W$ 的映射 $T$，$T$ 的值域是 $W$ 中形如 $Tv(v \in V)$ 的向量组成的子集
+        >$$rangeT = \lbrace Tv:v \in V \rbrace$$
 
-    * **满的**
+        例如：
+        >设 $T \in L(R^{2},R^{3})$ 定义为 $T(x,y) = (2x,5y,x+y)$，则 $rangeT = \lbrace (2x,5y,x+y): x,y \in R \rbrace$
 
-2. **映射基本定理**
-    
+        值域是一个子空间
 
-3. **线性映射关于给定基的矩阵**
+    * **满射**
+        函数 $T: V \rightarrow W$ 的值域等于 $W$，则称 $T$ 为满的
 
-3. **同构**
+    * **映射基本定理**
+
+2. **矩阵**
+    * **用矩阵表示线性映射**
+        $m \times n$ 矩阵 $A$ 是 $m$ 行 $n$ 列的矩形阵列：$A = \left(\begin{array}{l} A_{1,1} & \cdots & A_{1,n} \\ \vdots & \ddots & \vdots \\ A_{m,1} & \cdots & A_{m,n} \end{array}\right)$
+        如果 $T$ 是从 n 维向量空间到 m 维向量空间的一个线性映射，则 M(T) 是 m \times n 的矩阵
+        \
+        例如
+        >设 $T \in L(R^{2},R^{3})$ 定义为 $T(x,y)=(x+3y,2x+5y,7x+9y)$，那么标准基矩阵为
+        >$\left(\begin{array}{l} 1 & 3 \\ 2 & 5 \\ 7 & 9 \end{array}\right)$
+
+    * **矩阵乘法**
+        设 $A$ 是 $m \times n$ 矩阵，$C$ 是 $n \times p$ 矩阵，$AC$ 定义为 $m \times p$ 矩阵
+        >$$(AC)_{j,k} = \aum \limits _{r=1}^{n} A_{j,r}C_{r,k}$$
+
+        注意，只有第一个矩阵的列数等于第二个矩阵的行数时，才能定义这两个矩阵的乘积
+
+3. **可逆性与同构的向量空间**
+    * **逆**
+        如果线性映射 $T \in L(V,W)$ 可逆，那么存在线性映射 $S \in L(W,V)$ 使得 $ST$ 等于 $V$ 上的恒等映射 
+
 
 4. **积空间**
 
