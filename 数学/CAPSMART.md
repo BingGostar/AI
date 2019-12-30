@@ -224,7 +224,7 @@ https://wenku.baidu.com/view/1e7a8f3183c4bb4cf7ecd1d2.html
 
     * **矩阵乘法**
         设 $A$ 是 $m \times n$ 矩阵，$C$ 是 $n \times p$ 矩阵，$AC$ 定义为 $m \times p$ 矩阵
-        >$$(AC)_{j,k} = \aum \limits _{r=1}^{n} A_{j,r}C_{r,k}$$
+        >$$(AC)_{j,k} = \sum \limits _{r=1}^{n} A_{j,r}C_{r,k}$$
 
         注意，只有第一个矩阵的列数等于第二个矩阵的行数时，才能定义这两个矩阵的乘积
 
