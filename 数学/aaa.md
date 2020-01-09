@@ -25,7 +25,9 @@
 
     * **正交**
         如果两个向量的内积 $[x,y]=0$ 时，称向量 $x$ 与 $y$ 正交，在解析几何中表现为垂直
-    * **正交与线性无关**：若 $n$ 维向量 $a_{1},a_{2},\cdots,a_{r}$ 是一组两两正交的非零向量，则 $a_{1},a_{2},\cdots,a_{r}$ 线性无关
+
+    * **正交、线性无关**：若 $n$ 维向量 $a_{1},a_{2},\cdots,a_{r}$ 是一组两两正交的非零向量，则 $a_{1},a_{2},\cdots,a_{r}$ 线性无关
+        注意：线性无关的一组向量，两两之间不一定正交
         >反证法
         >假设 $\lambda_{1}a_{1}+\lambda_{2}a_{2}+\cdots+\lambda_{r}a_{r} = 0$
         >以 $a_{1}^{T}$ 左乘上式两端。因为两两正交，所以 $a_{1}^{T}a_{i} = 0$，故得
@@ -128,9 +130,6 @@
         >$$P^{-1}AP=B$$
 
         则称 $B$ 是 $A$ 的**相似矩阵**，对 $A$ 进行上述运算又称**相似变换**
-        \
-        例：
-
 
     * **相似矩阵的特征值相同**
         若 $n$ 阶矩阵 $A$ 与 $B$ 相似，则 $A$ 与 $B$ 的特征多项式相同，从而 $A$ 与 $B$ 的**特征值相同**
@@ -152,25 +151,43 @@
 
         * **定义**
             对 $n$ 阶矩阵 $A$，寻求相似变换矩阵 $P$，使 $P^{-1}AP = \Lambda$ 为对角阵，称为把矩阵 $A$ **对角化**
+
+            设 $f(\lambda)$ 是矩阵 $A$ 的特征多项式，则 $f(A)=O$
+            >若 $A$ 与对角阵相似
+            >则有可逆矩阵使 $P^{-1}AP = \Lambda = diag(\lambda_{1},\lambda_{2},\cdots,\lambda_{n})$
+            >其中 $\lambda_{i}$ 为 $A$ 的特征值，所以 $f(\lambda_{i}) = 0$
+            >$A = P\Lambda P^{-1}$
+            >$f(A) = Pf(\Lambda)P^{-1} = P \left|\begin{array}{l} f(\lambda_{1})&&\\&\ddots&\\&&f(\lambda_{n}) \end{array}\right| P^{-1} = POP^{-1} = O$
+
+        * **对角化的充要条件**
+            $P^{-1}AP = \Lambda$
             >矩阵 $P$ 用列向量表示 $P=(p_{1},p_{2},\cdots,p_{n})$
             >因为 $P^{-1}AP = \Lambda$ 所以 $AP=P\Lambda$ 即
             >$A(p_{1},p_{2},\cdots,p_{n}) = p_{1},p_{2},\cdots,p_{n} \left|\begin{array}{l} \lambda_{1}&&&\\&\lambda_{2}&&\\&&\ddots&\\&&&\lambda_{n} \end{array}\right|=(\lambda_{1}p_{1},\lambda_{2}p_{2},\cdots,\lambda_{n}p_{n})$
             >所以 $Ap_{i} = \lambda_{i}p_{i} \ (i=1,2,\cdots,n)$
             >可见 $\lambda_{i}$ 是矩阵 $A$ 的特征值，$p_{i}$ 是特征值对应的特征向量
-            >但是为了保证 $P$ 可逆，所以特征向量集 p_{1},p_{2},\cdots,p_{n} 必须线性无关
-            >要保证特征向量集 p_{1},p_{2},\cdots,p_{n} 线性无关，必须保证 $n$ 个特征值互不相等
+            >为了保证 $P$ 可逆，特征向量集 $p_{1},p_{2},\cdots,p_{n}$ 必须线性无关
 
-        * **对角化的充要条件**
-            $n$ 阶矩阵 $A$ 与对角阵相似的充要条件是 $A$ 有 $n$ 个**线性无关的特征向量**（$n$ 个特征向量互不相等）
-            **注意**：有重根时，**可能**有 $n$ 个线性无关的特征向量，所以是**可能**对角化
+            $n$ 阶矩阵 $A$ 与对角阵相似的充要条件是 $A$ 有 $n$ 个**线性无关的特征向量**
+            \
+            如果 $n$ 阶矩阵 $A$ 的 $n$ 个特征值互不相等，则 $A$ 与对角阵相似
+            **注意**：有重根时，基础解系向量的个数可能会有多个（基础解系向量线性无关），所以也会有 $n$ 个**线性无关的特征向量**，可以对角化
+            \
+            例：$A=\left|\begin{array}{l} 0&0&1\\1&1&x\\1&0&0 \end{array}\right|$，$x$ 为何值时，矩阵 $A$ 可以对角化
+            >$|A-\lambda E| = \left|\begin{array}{l} -\lambda&0&1\\1&1-\lambda&x\\1&0&-\lambda \end{array}\right| = (1-\lambda)\left|\begin{array}{l} -\lambda&1\\1&-\lambda \end{array}\right| = -(\lambda-1)^{2}(\lambda+1)$
+            >$\lambda_{1}=-1, \lambda_{2}=\lambda_{3}=1$
+            >当 $\lambda_{1}=-1$ 时，行最简形 $\left|\begin{array}{l} 1&0&1\\0&1&\frac{1-x}{2}\\0&0&0 \end{array}\right|$，基础解集个数 $n-r=3-2=1$，所以对应的特征向量为一个
+            >所以矩阵要能对角化，必须使 $\lambda_{2}=\lambda_{3}=1$ 有两个线性无关的解（两个线性无关特征向量）
+            >当 $\lambda_{2}=\lambda_{3}=1$ 时，行最简形 $\left|\begin{array}{l} 1&0&-1\\0&0&x+1\\0&0&0 \end{array}\right|$，如果要得到两个基础解，那么 $R(A-E)=1$，则 $x+1=0,x=-1$
+
+4. **对称矩阵的对角化**
+    * **对称矩阵的特征向量**
+        设 $\lambda_{1},\lambda_{2}$ 是对称矩阵 $A$ 的两个特征值，$p_{1},p_{2}$ 是对应的特征向量，若 $\lambda_{1} \neq \lambda_{2}$，则 $p_{1}$ 与 $p_{2}$ 正交
+        >$\lambda_{1}p_{1}=Ap_{1},\lambda_{2}p_{2}=Ap_{2}$
+        >因为 $A$ 对称，所以 $A=A^{T}$
+        >\lambda_{1}p_{1}
+    * **对角化与正交**
 
 
 
-
-
-        设 $f(\lambda)$ 是矩阵 $A$ 的特征多项式，则 $f(A)=O$
-        >若 $A$ 与对角阵相似
-        >则有可逆矩阵使 $P^{-1}AP = \Lambda = diag(\lambda_{1},\lambda_{2},\cdots,\lambda_{n})$
-        >其中 $\lambda_{i}$ 为 $A$ 的特征值，所以 $f(\lambda_{i}) = 0$
-        >$A = P\Lambda P^{-1}$
-        >$f(A) = Pf(\Lambda)P^{-1} = P \left|\begin{array}{l} f(\lambda_{1})&&\\&\ddots&\\&&f(\lambda_{n}) \end{array}\right| P^{-1} = POP^{-1} = O$
+        
