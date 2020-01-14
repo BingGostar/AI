@@ -193,11 +193,52 @@
 
     * **对称矩阵的对角化**
         设 $A$ 为 $n$ 阶对称矩阵，则必有正交矩阵 $P$，使 $P^{-1}AP = P^{T}AP = \Lambda$，其中 $\Lambda$ 是以 $A$ 的 $n$ 个特征值为为对角元的对角阵
+        \
+        **推论**：设 $A$ 为 $n$ 阶对称矩阵，$\lambda$ 是 $A$ 的特征方程的 $k$ 重根 ($\lambda 相同的根$)，则矩阵 $A-\lambda E$ 的秩 $R(A-\lambda E) = n-k$，从而对应特征值 $\lambda$ 恰有 $k$ 个线性无关的特征向量
+        
+        **对称阵对角化的步骤**
+        >(1) 求出 $A$ 的全部互不相等特征值 $\lambda_{1},\cdots,\lambda_{s}$，它们的重根次数依次为 $k_{1},\cdots,k_{s}$
+        >(2) 对每个根 $\lambda_{i}$ 求方程 $(A-\lambda E)x=0$ 的基础解系，会得到 $k_{i}$ 个线性无关的向量，把他们正交化、单位化，得到 $k_{i}$ 个两两正交的单位特征向量 (注意：非重根的特征向量只有一个，而且与其他特征向量正交)。最终会得到 $k_{1}+\cdots+k_{s}=n$ 个两两正交的单位特征向量
+        >(3) 把这些特征向量构成正交阵 $P$
 
-        **推论**：设 $A$ 为 $n$ 阶对称矩阵，$\lambda$ 是 $A$ 的特征方程的 $k$ 重根，则矩阵 $A-\lambda E$ 的秩 $R(A-\lambda E) = n-k$，从而对应特征值 $\lambda$ 恰有 $k$ 个线性无关的特征向量
+        例：$A=\left|\begin{array}{l} 0&-1&1\\-1&0&1\\1&1&0 \end{array}\right|$，求 $P^{-1}AP = \Lambda$ 的正交阵 $P$
+        >$|A-\lambda E| = \left|\begin{array}{l} -\lambda&-1&1\\-1&-\lambda&1\\1&1&-\lambda \end{array}\right| \xrightarrow[]{r_{1}-r_{2}} \left|\begin{array}{l} 1-\lambda&\lambda-1&0\\-1&-\lambda&1\\1&1&-\lambda \end{array}\right| \xrightarrow[]{c_{2}+c_{1}} \left|\begin{array}{l} 1-\lambda&0&0\\-1&-1-\lambda&1\\1&2&-\lambda \end{array}\right| = -(\lambda-1)^{2}(\lambda+2)=0$
+        >$A$ 的特征值为 $\lambda_{1}=-1,\lambda_{2}=\lambda_{3}=1$
+        >对应 $\lambda_{1}=-2$，解方程 $(A+2E)x=0$ 得基础系解 $\xi_{1} = \left|\begin{array}{l} -1\\-1\\1 \end{array}\right|$，将其单位化 $p_{1}=\frac{1}{\sqrt{3}} \left|\begin{array}{l} -1\\-1\\1 \end{array}\right|$
+        >对应 $\lambda_{2}=\lambda_{3}=1$，解方程 $(A+2E)x=0$ 得基础系解 $\xi_{2} = \left|\begin{array}{l} -1\\1\\0 \end{array}\right|,\xi_{3} = \left|\begin{array}{l} 1\\0\\1 \end{array}\right|$
+        >将 $\xi_{2},\xi_{3}$ 正交化，取 $\eta_{2} = \xi_{2}$
+        >$\eta_{3}=\xi_{3}-\frac{[ \eta_{2},\xi_{3} ]}{||\eta_{2}||^{2}} = \left|\begin{array}{l} 1\\0\\1 \end{array}\right|+\frac{1}{2}\left|\begin{array}{l} -1\\1\\0 \end{array}\right| = \frac{1}{2}\left|\begin{array}{l} 1\\1\\2 \end{array}\right|$
+        >将 $\eta_{2},\eta_{3}$ 单位化，得 $p_{2} = \frac{1}{\sqrt{2}} \left|\begin{array}{l} -1\\1\\0 \end{array}\right|, p_{3}=\frac{1}{\sqrt{6}}\left|\begin{array}{l} 1\\1\\2 \end{array}\right| $
+        >正交矩阵为
+        >$P=(p_{1},p_{2},p_{3})=\left|\begin{array}{l} -\frac{1}{\sqrt{3}}&-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}} \\ -\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}} \\ \frac{1}{\sqrt{3}}&0&\frac{2}{\sqrt{6}}  \end{array}\right|$
+        >$P^{-1}AP=P^{T}AP=\Lambda=\left|\begin{array}{l} -2&0&0\\0&1&0\\0&0&1 \end{array}\right| $
+        
+5. **二次型及其标准形**
+    * **二次型**
+        含有 $n$ 个变量 $x_{1},x_{2},\cdots,x_{n}$ 的二次齐次函数，称为**二次型**
+        >$f=a_{11}x_{1}^{2}+a_{12}x_{1}x_{2}+\cdots+ a_{1n}x_{1}x_{n}$
+        >$+a_{21}x_{2}x_{1}+a_{22}x_{2}^{2}+\cdots+ a_{2n}x_{2}x_{n}$
+        >$+\cdots+a_{n1}x_{n}x_{1}+a_{n2}x_{n}x_{2}+\cdots+ a_{nn}x_{n}x_{n}$
 
-    * **对称阵对角化的步骤**
-        (1) 求出 $A$ 的全部互不相等特征值 $\lambda_{1},\cdots,\lambda_{s}$
+        如果只含平方的二次型，称为二次型的**标准形**
+        >$f=k_{1}y_{1}^{2}+k_{2}y_{2}^{2}+\cdots+k_{n}y_{n}^{2}$
+
+        如果标准形的系数 $k_{1},k_{2},\cdots,k_{n}$ 只在 $1,-1,0$ 三个数中取值，称为二次型的规范性
+        >$f=y_{1}^{2}+\cdots+y_{p}^{2}-y_{p+1}^{2}-\cdots-y_{r}^{2}$
+
+        二次型的矩阵表示为
+        >$f=(x_{1},x_{2},\cdots,x_{n})\left|\begin{array}{l}a_{11}x_{1}+a_{12}x_{2}+\cdots+ a_{1n}x_{n} \\ a_{21}x_{1}+a_{22}x_{2}+\cdots+ a_{2n}x_{n} \\ \vdots \\ a_{n1}x_{1}+a_{n2}x_{2}+\cdots+ a_{nn}x_{n} \end{array}\right|$
+        >$=(x_{1},x_{2},\cdots,x_{n})\left|\begin{array}{l}a_{11}&a_{12}&\cdots&a_{1n}\\a_{21}&a_{22}&\cdots&a_{2n}\\\vdots&\vdots&&\vdots\\a_{n1}&a_{n2}&\cdots&a_{nn}\end{array}\right| \left|\begin{array}{l}x_{1}\\x_{2}\\\vdots\\x_{n}\end{array}\right|$
+
+        >$$A=\left|\begin{array}{l}a_{11}&a_{12}&\cdots&a_{1n}\\a_{21}&a_{22}&\cdots&a_{2n}\\\vdots&\vdots&&\vdots\\a_{n1}&a_{n2}&\cdots&a_{nn}\end{array}\right|, \ \ \ x = \left|\begin{array}{l}x_{1}\\x_{2}\\\vdots\\x_{n}\end{array}\right|$$
+
+        二次型记作，矩阵 $A$ 是对称矩阵
+        >$$f=x^{T}Ax$$
+
+        >注意区分相似矩阵 $P^{-1}AP=B$ 的概念，$P$ 为矩阵
+        
+        例如：$f=x^{2}-3z^{2}-4xy+yz$
+        >f=(x,y,z)\left|\begin{array}{l} 1&-2&0\\-2&0&\frac{1}{2}\\0&\frac{1}{2}&-3 \end{array}\right| \left|\begin{array}{l} x\\y\\z \end{array}\right|
 
 
 
