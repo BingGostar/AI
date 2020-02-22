@@ -238,7 +238,7 @@
         >注意区分相似矩阵 $P^{-1}AP=B$ 的概念，$P$ 为矩阵
         
         例如：$f=x^{2}-3z^{2}-4xy+yz$
-        >f=(x,y,z)\left|\begin{array}{l} 1&-2&0\\-2&0&\frac{1}{2}\\0&\frac{1}{2}&-3 \end{array}\right| \left|\begin{array}{l} x\\y\\z \end{array}\right|
+        >$f=(x,y,z)\left|\begin{array}{l} 1&-2&0\\-2&0&\frac{1}{2}\\0&\frac{1}{2}&-3 \end{array}\right| \left|\begin{array}{l} x\\y\\z \end{array}\right|$
 
 
 
