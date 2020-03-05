@@ -31,7 +31,7 @@ https://zhuanlan.zhihu.com/p/81834108
         https://space.bilibili.com/88461692/channel/detail?cid=13407
 
 2、线性代数
-    (1) 线性代数的本质 - 系列合集
+    (1) 线性代数的本质 - 系列合集(视频)
         https://space.bilibili.com/88461692/channel/detail?cid=9450
 
 ```
