@@ -179,5 +179,22 @@
 梯度下降法、牛顿法、拟牛顿法、共轭梯度法
     https://www.cnblogs.com/shixiangwan/p/7532830.html
     https://blog.csdn.net/qq_41577045/article/details/80343252
-    
+
+共轭梯度法
+    https://zhuanlan.zhihu.com/p/64227658
+
+梯度下降法
+    https://zhuanlan.zhihu.com/p/37524275
+
+梯度下降法与牛顿法比较
+    https://www.zhihu.com/question/306051582
+    https://zhuanlan.zhihu.com/p/37524275    
+    https://zhuanlan.zhihu.com/p/38186912
+
+无条件优化
+    梯度下降法
+    牛顿迭代法(二阶导)
+
+求解的方法
+    牛顿迭代法(一阶导)
 ```
