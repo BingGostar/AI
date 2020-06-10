@@ -176,20 +176,6 @@
     以凸性来分类，可以分为凸优化和非凸优化
     以线性性来分来，可以分为线性规划和非线性规划，一个非线性规划问题，有可能是凸的，也有可以不是凸的
 
-梯度下降法、牛顿法、拟牛顿法、共轭梯度法
-    https://www.cnblogs.com/shixiangwan/p/7532830.html
-    https://blog.csdn.net/qq_41577045/article/details/80343252
-
-共轭梯度法
-    https://zhuanlan.zhihu.com/p/64227658
-
-梯度下降法
-    https://zhuanlan.zhihu.com/p/37524275
-
-梯度下降法与牛顿法比较
-    https://www.zhihu.com/question/306051582
-    https://zhuanlan.zhihu.com/p/37524275    
-    https://zhuanlan.zhihu.com/p/38186912
 
 无条件优化
     梯度下降法
@@ -197,4 +183,33 @@
 
 求解的方法
     牛顿迭代法(一阶导)
+```
+
+### 一些知识网站
+```
+深度学习中的优化算法
+    https://zhuanlan.zhihu.com/p/43506482
+
+常见的几种最优化方法（梯度下降法、牛顿法、拟牛顿法、共轭梯度法等）
+    https://www.cnblogs.com/shixiangwan/p/7532830.html
+
+牛顿法、拟牛顿法、高斯-牛顿法、共轭梯度法推导总结
+    https://blog.csdn.net/qq_41577045/article/details/80343252
+
+如何理解共轭梯度法
+    https://zhuanlan.zhihu.com/p/64227658
+
+梯度下降法、牛顿法和拟牛顿法
+    https://zhuanlan.zhihu.com/p/37524275
+
+梯度下降法、牛顿法、拟牛顿法 三类迭代法应用场景有何差别
+    https://www.zhihu.com/question/306051582
+
+梯度下降法与牛顿法比较
+    https://zhuanlan.zhihu.com/p/38186912
+
+梯度下降算法原理及推导
+    https://zhuanlan.zhihu.com/p/66192821
+
+
 ```
