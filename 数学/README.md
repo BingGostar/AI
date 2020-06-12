@@ -168,6 +168,14 @@
 [随机过程 Ross]
 [信息论基础 Thomas]
 
+// 微积分相关的网站
+[微积分（先修课）(清华大学 2019秋)] https://next.xuetangx.com/learn/THU07011000397/THU07011000397/1184838/video/796733
+[蜂考 高数 微积分 上下] https://fengkao.ke.qq.com/
+[微积分的本质 - 系列合集] https://space.bilibili.com/88461692/channel/detail?cid=13407
+
+// 线性代数相关的网站
+[线性代数的本质 - 系列合集(视频)] https://space.bilibili.com/88461692/channel/detail?cid=9450
+
 ```
 
 ### 一些知识网站
