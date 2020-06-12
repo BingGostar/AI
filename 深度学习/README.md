@@ -12,6 +12,7 @@
 [建立你自己的神经网络 Make Your Own Neural Network] 
 [TensorFlow]
 [pytouch]
+[深度学习的数学] https://book.douban.com/subject/33414479/
 
 
 ```
